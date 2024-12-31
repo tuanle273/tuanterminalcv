@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w2.org/1999/xhtml">
+<script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><html lang="en">
+    <head>
+	<meta name="generator" content="Hugo 0.140.2">
+            <meta charset="utf-8" />
+    <title>terminalcv </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tuan Le&#39;s online resume">
+    <meta property="og:title" content="terminalcv" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="http://localhost:1313/" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href=""/>
+    <link rel="canonical" href="http://localhost:1313/" />    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.42.2/js/jquery.terminal.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/less.min.js"></script>
+    <script src="https://unpkg.com/jquery.terminal/js/autocomplete_menu.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/2.42.0/css/jquery.terminal.min.css" rel="stylesheet"/>
+
+    <style>
+        body {
+            width: 100%;
+            font-size: 18px;
+        }
+    </style>
+
+
+
+
+    </head>
+        <body>
+        
+<script> 
+jQuery(document).ready(function($) {
+    var animation = false;
+
+    var commands = {
+        help: "shows help",
+        less: "Use less as output method",
+        whois: "list basic details",
+        social: "list social networks",
+        work: "list work experience",
+        education: "list education",
+        skills: "list core skills",
+        softskills: "list soft skills",
+        languages: "list spoken languages",
+        projects: "list projects",
+         
+            certifications: "list certifications",
+        
+        
+        
+        
+        
+            version: "Current version",
+        
+        
+            exit: "exit the terminal",
+        
+        all: "Show all details",
+    };
+
+    function progressBar(number) {
+        var barLength = Math.round(number / 10);
+        var barFilled = Array(barLength + 1).join("&#9611;");
+        var barBlank= Array(11 - barLength).join("&#9617;");
+
+        return barFilled + barBlank
+    }
+
+    
+    function padKey(key, length) {
+        return key + ' '.repeat(length - key.length);
+    }
+
+    function commandsHelp() {
+        let longestKeyLength = Math.max(...Object.keys(commands).map(key => key.length));
+
+        let helpText = ""
+        for (let key in commands) {
+            if (commands.hasOwnProperty(key)) {
+                helpText += ` ${padKey(key, longestKeyLength)}\t${commands[key]}\n`
+            }
+        }
+        return helpText
+    }
+
+    var help = '\n[[b;white;]usage:]\n' +
+                '\n <command> - execute the command\n' +
+                ' less <command> - use less to display the output\n\n' +
+                '\n[[b;white;]Available commands:]\n' + 
+               commandsHelp();
+
+    var whois = [
+     
+        '[[b;grey;]Name:]\t\t\tTuan Le\n' + 
+        '[[b;grey;]Profession:]\t\tSystem Engineer\n' +
+        '[[b;grey;]Location:]\t\tHanoi, Vietnam\n' +
+        
+        '[[b;grey;]Email:]\t\t\ttuanle273@gmail.com\n' +
+        
+        
+        '[[b;grey;]Homepage:]\t\thttps:\/\/tuanla.dev\n' +
+        
+        
+        'I\u0027m Tuan, an ambitious System Engineer with 1.5 year of experience in this field. I have hands-on experience deploying and maintaining scalable infrastructure. I worked with tools like Docker, Jenkins, and Kubernetes to streamline operations and improve system reliability. I look forward to learning from experienced experts to develop my skills in Cloud, IaC, CI-CD\n' +
+        
+        '\r',
+    
+    ];
+
+    function social() { 
+        var hideName = false;
+        let sMap = { 
+             
+                
+                "github": "https:\/\/github.com\/tuanle273",
+                
+                "linkedin": "https:\/\/www.linkedin.com\/in\/tuanle273",
+                
+            
+        };
+
+        
+        socialText = []
+        for (let key in sMap) {
+            if (sMap.hasOwnProperty(key)) {
+                if (hideName) {
+                    socialText.push(sMap[key]);
+                } else { 
+                    let longestKeyLength = Math.max(...Object.keys(sMap).map(key => key.length));
+                    socialText.push(`${padKey(key, longestKeyLength)}\t${sMap[key]}`)
+                };
+            }
+        }
+
+        return socialText
+    }
+
+    var certifications = [
+    
+        
+            '---\n' +
+            '[[b;grey;]AWS Certified SysOps Administrator – Associate]\n' +
+            '19\/9\/2024\n' +
+            
+            'AWS\n' +
+            
+            
+            
+            'Badge: \thttps:\/\/www.credly.com\/badges\/53b422c5-4637-4436-8cc4-dac6ff52a4da\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]Apache Cassandra 3 Administrator Associate Certification]\n' +
+            '11\/11\/2024\n' +
+            
+            'Datastax\n' +
+            
+            
+            
+            'Badge: \thttps:\/\/certification.mettl.com\/datastax\/applicant\/verify-certification-with-qr?email=tuanle2731%40gmail.com\u0026assessment=Apache%20Cassandra%203%20Administrator%20Associate%20Certification\u0026date=Nov%2016,%202024\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]Dynatrace Professional]\n' +
+            '31\/12\/2024\n' +
+            
+            'Dynatrace\n' +
+            
+            
+            
+            'Badge: \thttps:\/\/www.credly.com\/badges\/85775e68-43d8-432e-a93c-fb941c601bf9\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]MongoDB Associate Database Administrator]\n' +
+            '16\/6\/2024\n' +
+            
+            'MongoDB\n' +
+            
+            
+            
+            'Badge: \thttps:\/\/www.credly.com\/badges\/e48c2833-0366-4e99-8d22-72996fcf00a5\n' +
+            
+            '\r',
+        
+            '---\n' +
+            '[[b;grey;]PostgreSQL Essentials v16 Certification]\n' +
+            '19\/7\/2024\n' +
+            
+            'PostgreSQL\n' +
+            
+            
+            
+            'Badge: \thttps:\/\/www.credly.com\/badges\/0cc554ba-e0c9-4fd6-b8a1-a635925501aa\n' +
+            
+            '\r',
+        
+    
+    ];
+    
+    var work = [
+    
+        
+            '---\n' +
+            '[[b;orange;]System Engineer]\n' +
+            'FPT IS\n' +
+            'Hanoi\n' +
+            'August 2023 - Present\n' +
+            '\n' +
+            '- Deploy solutions on virtualization, cloud, multi-cloud, hybrid cloud platforms\n- Database deployment, installation, configuration, troubleshooting on Oracle, MySQL, Mongo, Postgres Databases\n- Application monitoring deployment\n- Implementing and maintaining CI\/CD pipelines using Jenkins, GitLab CI\/CD, and GitHub Actions\n- Implementing and maintaining Kubernetes clusters\n- Implementing and maintaining Docker containers\n- Implementing and maintaining monitoring solutions like Prometheus, Grafana, ELK Stack\n- Implementing and maintaining automation solutions using Ansible, Terraform\n' +
+            '\r',
+        
+            '---\n' +
+            '[[b;green;]System Engineer]\n' +
+            'CSC JSC\n' +
+            'Hanoi\n' +
+            'July 2023  - August 2023\n' +
+            '\n' +
+            '-\tMember the deployment of a multi-region disaster recovery solution, guaranteeing 99.99% data availability in critical applications\n-\tDeploy and manage virtualization systems using VMware vSphere.\n-\tInstall, Configure File, Object Storage solutions like Cloudian, FileCloud, and Ceph\n' +
+            '\r',
+        
+    
+    ];
+
+    var education = [
+    
+        
+            '---\n' +
+            '[[b;blue;]University of Greenwich]\n' +
+            '7\/2019 - 7\/2023\n' +
+            
+            "\r",
+        
+    
+    ];
+
+    var projects = [
+    
+    ];
+
+    var skills = [
+    
+        
+            '[[b;grey;]Skill 1:]\n' +
+            progressBar( 90 ) +
+            '90' + '%\n' +
+            
+            '\r',
+        
+            '[[b;grey;]Skill 2:]\n' +
+            progressBar( 30 ) +
+            '30' + '%\n' +
+            
+            '\r',
+        
+            '[[b;blue;]Skill 3:]\n' +
+            progressBar( 50 ) +
+            '50' + '%\n' +
+            
+            'Skill names can have colors too\n' +
+            
+            '\r',
+        
+    
+    ];
+
+    var softSkills = [
+    
+        
+            '[[b;red;]SoftSkill 1:]\n' +
+            progressBar( 80 ) +
+            '80' + '%\n' + 
+            
+            '\r',
+        
+            '[[b;grey;]SoftSkill 2:]\n' +
+            progressBar( 90 ) +
+            '90' + '%\n' + 
+            
+            'Description\n' +
+            
+            '\r',
+        
+    
+    ];
+  
+    var languages = [
+    
+        
+            '[[b;Blue;]English:]\n' +
+            progressBar( 70 )+ 
+            '70' + '%\n' +
+            
+            '\r',
+        
+    
+    ];
+
+    var misc = [
+         
+    ];
+
+    var source =  '        _______            \n' +
+                  '       |       |           \n' +
+                  '       |       |           \n' +
+                  '       |_______|_______    \n' +
+                  '               |       |   \n' +
+                  '               |       |   \n' +
+                  ' ______________|_______|   \n' +
+                  '|      |       |       |   \n' +
+                  '|      |       |       |   \n' +
+                  '|______|_______|_______|   \n' +
+                  '[[;red;]May the source be with you]\n' +
+                  '[[;grey;]https://github.com/coolapso/hugo-theme-terminalcv\n';
+
+    var all = [ 
+        whois,
+        social(),
+        work,
+        education,
+        skills,
+        softSkills,
+        languages,
+        projects,
+        certifications,
+        misc,
+        
+        
+        source,
+        
+    ]
+
+    $('body').terminal(function(command, term) {
+
+        var useLess = false;
+        
+
+        function echoArray(array) {
+            if (useLess) {
+                term.less(array);
+            } else {
+                for (i = 0; i < array.length; i += 1) {
+                    term.echo(array[i]);
+                }
+            }
+        }
+        
+        function progress(percent, width) {
+            var size = Math.round(width*percent/100);
+            var left = '', taken = '', i;
+            for (i=size; i--;) {
+                taken += '=';
+            }
+            if (taken.length > 0) {
+                taken = taken.replace(/=$/, '>');
+            }
+            for (i=width-size; i--;) {
+                left += ' ';
+            }
+            return '[' + taken + left + '] ' + percent + '%';
+        }
+
+        function loading () {
+            var i = 0, size = 30;
+            prompt = term.get_prompt();
+            string = progress(0, size);
+            term.set_prompt(progress);
+            animation = true;
+            (function loop() {
+                string = progress(i++, size);
+                term.set_prompt(string);
+                if (i < 100) {
+                    timer = setTimeout(loop, 10);
+                } else {
+                    term.echo(progress(i, size) + ' [[b;green;]OK]').set_prompt(prompt);
+                    animation = false
+                }
+            })();
+        }
+
+        commands = command.split(/[ ]+/);
+        if (commands[0] == 'less') {
+            useLess = true;
+            commands.shift();
+        } 
+                    
+        switch(commands[0]) {
+            case 'whois':
+                
+                echoArray(whois);
+                break;
+            case 'social':
+                
+                echoArray(social());
+                break;
+            case 'work':
+                
+                echoArray(work);
+                break;
+            case 'education':
+                
+                echoArray(education);
+                break;
+            case 'skills':
+                
+                useLess = true;
+                
+                echoArray(skills);
+                break;
+            case 'softskills':
+                
+                echoArray(softSkills);
+                break;
+            case 'languages':
+                
+                echoArray(languages);
+                break;
+            case 'projects':
+                
+                echoArray(projects);
+                break;
+            case 'certifications':
+                
+                term.echo(certifications);
+                break;
+            case 'misc':
+                
+                echoArray(misc);
+                break;
+            case 'help':
+            case '?':
+                term.echo(help);
+                break;
+            case 'all':
+                
+                echoArray(all.flat(1));
+                break;
+            
+            case ':(){:|:&};:':
+                term.echo("nice try");
+                break;
+            case 'source':
+                
+                term.echo(source);
+                break;
+            
+            case 'exit':
+                term.echo("terminating ... ")
+                loading();
+                setTimeout(function(){window.location = 'about:blank'}, 2000);
+                break;
+            
+            
+            case 'version':
+                term.echo("2.0.0");
+                break;
+            
+            case '':
+                break;
+            default:
+                term.echo("\nunknown command: " + command + "\n" +
+                          "please type 'help' or '?' for a list of available commands\n");
+        }
+    }, {
+        prompt: '[[;red;][][[;pink;]TuanLe@terminalCV][[;red;]\\]][[;grey;]-][[;red;][][[;blue;]~\/terminalcv][[;red;]\\]][[;orange;]: ]',
+        greetings: "[[b;white;]‎                                                                                                  \n        tttt                                                               lllllll                          \n      ttt:::t                                                               l:::::l                          \n      t:::::t                                                               l:::::l                          \n      t:::::t                                                               l:::::l                          \nttttttt:::::ttttttt    uuuuuu    uuuuuu    aaaaaaaaaaaaa  nnnn  nnnnnnnn     l::::l     eeeeeeeeeeee         \nt:::::::::::::::::t    u::::u    u::::u    a::::::::::::a n:::nn::::::::nn   l::::l   ee::::::::::::ee       \nt:::::::::::::::::t    u::::u    u::::u    aaaaaaaaa:::::an::::::::::::::nn  l::::l  e::::::eeeee:::::ee     \ntttttt:::::::tttttt    u::::u    u::::u             a::::ann:::::::::::::::n l::::l e::::::e     e:::::e     \n      t:::::t          u::::u    u::::u      aaaaaaa:::::a  n:::::nnnn:::::n l::::l e:::::::eeeee::::::e     \n      t:::::t          u::::u    u::::u    aa::::::::::::a  n::::n    n::::n l::::l e:::::::::::::::::e      \n      t:::::t          u::::u    u::::u   a::::aaaa::::::a  n::::n    n::::n l::::l e::::::eeeeeeeeeee       \n      t:::::t    ttttttu:::::uuuu:::::u  a::::a    a:::::a  n::::n    n::::n l::::l e:::::::e                \n      t::::::tttt:::::tu:::::::::::::::uua::::a    a:::::a  n::::n    n::::nl::::::le::::::::e               \n      tt::::::::::::::t u:::::::::::::::ua:::::aaaa::::::a  n::::n    n::::nl::::::l e::::::::eeeeeeee       \n        tt:::::::::::tt  uu::::::::uu:::u a::::::::::aa:::a n::::n    n::::nl::::::l  ee:::::::::::::e       \n          ttttttttttt      uuuuuuuu  uuuu  aaaaaaaaaa  aaaa nnnnnn    nnnnnnllllllll    eeeeeeeeeeeeee       \n‎\nWelcome to my online resume\nType \u0027help\u0027 for a list of available commands\n]",
+
+        keydown: function(e, term) {
+            if (animation) {
+                if (e.which == 68 && e.ctrlKey) { 
+                    clearTimeout(timer);
+                    animation = false;
+                    term.echo(string + ' [[b;red;]FAIL]')
+                    .set_prompt(prompt);
+                }
+                return false;
+            }
+        },
+        autocompleteMenu: true,
+        completion: Object.keys(commands)
+        
+    });
+});
+</script>
+
+        </body>
+</html>

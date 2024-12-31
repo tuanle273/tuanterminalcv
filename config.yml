@@ -1,0 +1,254 @@
+## Example Config file
+baseURL: "https://tuanla.dev"
+theme: "terminalcv"
+title: "terminalcv"
+
+params:
+  version: '2.0.0'
+  description: "Tuan Le's online resume"
+  prompt:
+    core:
+      text: "TuanLe@terminalCV"
+      color: 'pink'
+      before: '['
+      beforeColor: 'red'
+      after: '\]'
+      afterColor: 'red'
+      # separator: '-'
+    separator:
+      text: "-"
+      # color: 
+    path: 
+      before: '['
+      beforeColor: 'red'
+      text: '~/terminalcv'
+      color: 'blue'
+      after: '\]'
+      afterColor: 'red'
+    extra:
+      text: ": "
+      color: 'orange'
+
+  # promptColor: grey
+  # promptSimbols: ":~$"
+  # promptSimbolsColor: grey
+  # startxLocation: https://example.com
+  # useLess: true
+  exitLocation: 'about:blank'
+  source: true
+  #use a ‎ (blank character) if your first character of the ascii art is a whitespace
+  greeting: | 
+    ‎                                                                                                  
+            tttt                                                                lllllll                          
+          ttt:::t                                                               l:::::l                          
+          t:::::t                                                               l:::::l                           
+          t:::::t                                                               l:::::l                          
+    ttttttt:::::ttttttt    uuuuuu    uuuuuu    aaaaaaaaaaaaa  nnnn  nnnnnnnn     l::::l     eeeeeeeeeeee         
+    t:::::::::::::::::t    u::::u    u::::u    a::::::::::::a n:::nn::::::::nn   l::::l   ee::::::::::::ee       
+    t:::::::::::::::::t    u::::u    u::::u    aaaaaaaaa:::::an::::::::::::::nn  l::::l  e::::::eeeee:::::ee     
+    tttttt:::::::tttttt    u::::u    u::::u             a::::ann:::::::::::::::n l::::l e::::::e     e:::::e     
+          t:::::t          u::::u    u::::u      aaaaaaa:::::a  n:::::nnnn:::::n l::::l e:::::::eeeee::::::e     
+          t:::::t          u::::u    u::::u    aa::::::::::::a  n::::n    n::::n l::::l e:::::::::::::::::e      
+          t:::::t          u::::u    u::::u   a::::aaaa::::::a  n::::n    n::::n l::::l e::::::eeeeeeeeeee       
+          t:::::t    ttttttu:::::uuuu:::::u  a::::a    a:::::a  n::::n    n::::n l::::l e:::::::e                
+          t::::::tttt:::::tu:::::::::::::::uua::::a    a:::::a  n::::n    n::::nl::::::le::::::::e               
+          tt::::::::::::::t u:::::::::::::::ua:::::aaaa::::::a  n::::n    n::::nl::::::l e::::::::eeeeeeee       
+            tt:::::::::::tt  uu::::::::uu:::u a::::::::::aa:::a n::::n    n::::nl::::::l  ee:::::::::::::e       
+              ttttttttttt      uuuuuuuu  uuuu  aaaaaaaaaa  aaaa nnnnnn    nnnnnnllllllll    eeeeeeeeeeeeee       
+    ‎
+    Welcome to my online resume
+    Type 'help' for a list of available commands
+
+  whois: 
+    # settings:
+    #   useLess: true
+    details:
+      name: "Tuan Le"
+      profession: "System Engineer"
+      location: "Hanoi, Vietnam"
+      email: "tuanle273@gmail.com"
+      homelink: "https://tuanla.dev"
+      description: |
+              I'm Tuan, an ambitious System Engineer with 1.5 year of experience in this field. I have hands-on experience deploying and maintaining scalable infrastructure. I worked with tools like Docker, Jenkins, and Kubernetes to streamline operations and improve system reliability. I look forward to learning from experienced experts to develop my skills in Cloud, IaC, CI-CD
+  social:
+    # settings:
+    #   useLess: true
+    #   hideName: true
+    details:
+    - name: "github"
+      url: "https://github.com/tuanle273"
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/tuanle273"
+    # - name: "myspace"
+    #   url: "https://myspace.com"
+    # - name: "hi5"
+    #   url: "https://www.hi5.com"
+    # - name: "instagram"
+    #   url: "https://instagram.com"
+    # - name: "Another social"
+    #   url: "https://anothersocial.com"
+
+  work:
+    # settings:
+    #   useLess: true
+    details:
+    - jobTitle: System Engineer
+      color: orange
+      company: 'FPT IS' 
+      location: Hanoi
+      date: August 2023 - Present
+      description: |
+        - Deploy solutions on virtualization, cloud, multi-cloud, hybrid cloud platforms
+        - Database deployment, installation, configuration, troubleshooting on Oracle, MySQL, Mongo, Postgres Databases
+        - Application monitoring deployment
+        - Implementing and maintaining CI/CD pipelines using Jenkins, GitLab CI/CD, and GitHub Actions
+        - Implementing and maintaining Kubernetes clusters
+        - Implementing and maintaining Docker containers
+        - Implementing and maintaining monitoring solutions like Prometheus, Grafana, ELK Stack
+        - Implementing and maintaining automation solutions using Ansible, Terraform
+
+
+
+    - jobTitle: System Engineer
+      color: green
+      company: 'CSC JSC'
+      location: Hanoi
+      date: July 2023  - August 2023
+      description: |
+        -	Member the deployment of a multi-region disaster recovery solution, guaranteeing 99.99% data availability in critical applications
+        -	Deploy and manage virtualization systems using VMware vSphere.
+        -	Install, Configure File, Object Storage solutions like Cloudian, FileCloud, and Ceph
+        
+
+
+    # - jobTitle: Job with default color title
+    #   company: '-'
+    #   location: anywhere
+    #   date: July 2008 - 2010
+    #   description: Description about this default color job
+
+  education:
+    details:
+    - courseName: University of Greenwich
+      color: blue
+      date: 7/2019 - 7/2023
+      # description: Descrption about red color trianing
+
+    # - courseName: Default color training
+    #   date: Sept 2004 - Jun 2008
+    #   #description: There is no need for description
+
+  skills:
+    settings:
+      useLess: true
+    details:
+    - name: Skill 1
+      percentage: 90
+      Description: you can add a description
+
+    - name: Skill 2
+      percentage: 30
+      #description: or you can leave it comented   
+
+    - name: Skill 3
+      color: blue
+      percentage: 50
+      description: Skill names can have colors too
+
+  softskills:
+    # settings:
+    #   useLess: true
+    details:
+    - name: SoftSkill 1
+      color: red
+      percentage: 80
+      #description:
+
+    - name:  SoftSkill 2
+      #color: 
+      percentage: 90
+      description: Description
+
+  languages:
+    # settings:
+    #   useLess: true
+    details:
+    - name: English
+      color: Blue
+      percentage: 70
+      description: 
+
+
+
+  # projects:
+  #   # settings:
+  #   #   useLess: true
+  #   details:
+  #   - title: Project Red
+  #     color: red
+  #     date: since 2019
+  #     link: https://example.com
+  #     description: Describing red stuff
+
+  #   - title: Project Blue
+  #     color: blue
+  #     date: since 2016
+  #     link: https://example.com/blue
+  #     #description: nothing to describe
+
+  #   - title: Project Default
+  #     date: Since 2017
+  #     link: https://example.com/default
+  #     #description: not there either
+
+  certifications:
+    # settings:
+    #   useLess: true
+    details:
+    - certName: AWS Certified SysOps Administrator – Associate
+      company: AWS
+      date: 19/9/2024
+      badge: https://www.credly.com/badges/53b422c5-4637-4436-8cc4-dac6ff52a4da
+      #description: Lorem Ipsum
+    - certName: Apache Cassandra 3 Administrator Associate Certification
+      company: Datastax
+      date: 11/11/2024
+      badge: https://certification.mettl.com/datastax/applicant/verify-certification-with-qr?email=tuanle2731%40gmail.com&assessment=Apache%20Cassandra%203%20Administrator%20Associate%20Certification&date=Nov%2016,%202024
+      #description: Lorem Ipsum
+    - certName: Dynatrace Professional
+      company: Dynatrace
+      date: 31/12/2024
+      badge: https://www.credly.com/badges/85775e68-43d8-432e-a93c-fb941c601bf9
+      #description: Lorem Ipsum
+    - certName: MongoDB Associate Database Administrator
+      company: MongoDB
+      date: 16/6/2024
+      badge: https://www.credly.com/badges/e48c2833-0366-4e99-8d22-72996fcf00a5
+      #description: Lorem Ipsum
+    - certName: PostgreSQL Essentials v16 Certification
+      company: PostgreSQL
+      date: 19/7/2024
+      badge: https://www.credly.com/badges/0cc554ba-e0c9-4fd6-b8a1-a635925501aa
+      #description: Lorem Ipsum  
+  # misc: 
+  #   # settings:
+  #   #   useLess: true
+  #   commandName: newcommand
+  #   title: "This Section can have a different command name"
+  #   titleColor: teal
+  #   content: |
+  #         Here the title and the content can have different colors
+  #         The content can be multi
+          
+  #         line
+
+  #         And spaces       will be respected as well
+  #         This section will have the default command: misc
+  #         but you can name it something else with the property
+  #         commandName: <String>
+  #         Give it a shot and try and uncomment the line 
+  #         commandName: newcommand
+  #         now instead of misc you can execute the newcommand for this section
+  #         Auto completion will know it too! :D 
+
+  #   contentColor: orange
